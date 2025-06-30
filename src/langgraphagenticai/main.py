@@ -1,5 +1,5 @@
 import streamlit as st
-from src.langgraphagenticai.ui.streamlit.display_result import DisplyResultsStreamlit
+from src.langgraphagenticai.ui.streamlit.display_result import DisplayResultStreamlit
 from src.langgraphagenticai.ui.streamlit.loadui import LoadStreamlitUI
 from src.langgraphagenticai.llms.groqllm import GroqLLM
 from src.langgraphagenticai.graph.graphbuilder import GraphBuilder
@@ -41,7 +41,7 @@ def load_langgraph_agenticai_app():
             graph_builder = GraphBuilder(model)
             try:
                 graph=graph_builder.setup_graph(usecase)
-                DisplyResultsStreamlit(usecase,graph,user_message).display_result_on_ui()
+                DisplayResultStreamlit(usecase,graph,user_message).display_result_on_ui()
             except Exception as e:
                 st.error(f"Error: Graph setup failed {e}")
                 return
